@@ -1,0 +1,28 @@
+debug:
+  false
+server:
+  port:
+    8004
+  error:
+    path:
+      /error
+    whitelabel:
+      enabled:
+        false
+spring:
+  autoconfigure:
+    exclude:
+      org.springframework.boot.autoconfigure.web.ErrorMvcAutoConfiguration
+      
+elasticsearch:
+  host: 10.51.158.199
+  port: 9200
+  username: elastic
+  password: elastic
+
+feign:
+  client:
+    config:
+      appsearch:
+        defaultRequestHeaders:
+          Authorization:"Bearer search-untdq4d62zdka9zq4mkre4vv""

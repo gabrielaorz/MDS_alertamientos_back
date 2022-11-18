@@ -1,0 +1,3 @@
+com\mds\MdsApplicationTests.class
+com\mds\repository\AlertRepositoryTest.class
+com\mds\service\AlertServiceTest.class

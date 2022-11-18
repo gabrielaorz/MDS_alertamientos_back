@@ -1,0 +1,7 @@
+com\mds\controller\rest\AlertController.class
+com\mds\controller\UIController.class
+com\mds\repository\AlertRepository.class
+com\mds\model\Alert.class
+com\mds\service\AlertService.class
+com\mds\ElasticsearchClientConfig.class
+com\mds\MdsApplication.class

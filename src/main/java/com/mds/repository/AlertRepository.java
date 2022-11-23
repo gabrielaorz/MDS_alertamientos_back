@@ -16,6 +16,9 @@ public interface AlertRepository extends ElasticsearchRepository<Alert, String> 
     @Query("{\"bool\": {\"must\": [{\"match\": {\"host\": \"?0\"}}]}}")
     Page<Alert> findByEmpleadoUsingCustomQuery(String empleado, Pageable pageable);
 
-    @Query("{\"bool\": {\"must\": [{\"match\": {\"estatus\": \"1\"}}]}}")
+    @Query("{\"bool\": {\"must\": [{\"match_all\": {}}]}}")
     List<Alert> findAllInactive();
+
+    @Query("{\"bool\": {\"must\": [{\"match_all\": {}}]}}")
+    List<Alert> findAll();
 }

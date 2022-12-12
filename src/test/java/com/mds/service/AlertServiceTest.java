@@ -5,6 +5,7 @@ import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
+import java.text.ParseException;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
@@ -26,7 +27,7 @@ class AlertServiceTest {
 	private DateTimeFormatter pattern = DateTimeFormatter.ofPattern("yyyyMMddHHmmssSSS");
 
 	@Test
-	void insertAndFindById() {
+	void insertAndFindById() throws ParseException {
 		Alert a = newAlert();
 		String empleado = a.getEmpleado();
 
@@ -63,7 +64,7 @@ class AlertServiceTest {
 		assertFalse(all.isEmpty());
 	}
 	@Test
-	void update() {
+	void update() throws ParseException {
 		Alert a = newAlert();
 		String empleado = a.getEmpleado();
 
@@ -79,7 +80,7 @@ class AlertServiceTest {
 		e.setHost("Host2");
 		e.setJustificacion("Justificacion2");
 		e.setSensor("Sensor2");
-		e.setVigencia("Vigencia2");
+		e.setVigencia("24/11/22 00:00:00");
 		e.setEstatus(2);
 		e.setArea("Area2");
 		e.setDispositivo("Dispositivo2");
@@ -103,7 +104,7 @@ class AlertServiceTest {
 		alertService.deleteById(empleado);
 	}
 	@Test
-	void deleteById() {
+	void deleteById() throws ParseException {
 		Alert a = newAlert();
 
 		a = alertService.insert(a);
@@ -125,7 +126,7 @@ class AlertServiceTest {
 		a.setJustificacion("Justificacion");
 		a.setSensor("Sensor");
 		a.setMotivo("Motivo");
-		a.setVigencia("Vigencia");
+		a.setVigencia("24/11/22 00:00:00");
 		a.setEstatus(1);
 		a.setArea("Area");
 		a.setDispositivo("Dispositivo");

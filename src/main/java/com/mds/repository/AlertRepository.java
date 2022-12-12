@@ -16,6 +16,48 @@ public interface AlertRepository extends ElasticsearchRepository<Alert, String> 
     @Query("{\"bool\": {\"must\": [{\"match\": {\"host\": \"?0\"}}]}}")
     Page<Alert> findByEmpleadoUsingCustomQuery(String empleado, Pageable pageable);
 
-    @Query("{\"bool\": {\"must\": [{\"match\": {\"estatus\": \"1\"}}]}}")
-    List<Alert> findAllInactive();
+    @Query("{\n" +
+            "  \"bool\":{\n" +
+            "    \"must\":[{\n" +
+            "        \"match_all\": {}\n" +
+            "    }]\n" +
+            "  }\n" +
+            "}, \"sort\" : [\n" +
+            "    {\n" +
+            "      \"@timestamp.keyword\" : {\n" +
+            "        \"order\" : \"desc\"\n" +
+            "      }\n" +
+            "    }\n" +
+            "  ]\n")
+    List<Alert> findAll();
+
+    @Query("{\n" +
+            "  \"bool\":{\n" +
+            "    \"must\":[{\n" +
+            "        \"match\": { \"estatus\" : 0 }\n" +
+            "    }]\n" +
+            "  }\n" +
+            "}, \"sort\" : [\n" +
+            "    {\n" +
+            "      \"@timestamp.keyword\" : {\n" +
+            "        \"order\" : \"desc\"\n" +
+            "      }\n" +
+            "    }\n" +
+            "  ]\n")
+    List<Alert> findAllInactiveSorted();
+
+    @Query("{\n" +
+            "  \"bool\":{\n" +
+            "    \"must\":[{\n" +
+            "        \"match\": { \"estatus\" : 1 }\n" +
+            "    }]\n" +
+            "  }\n" +
+            "}, \"sort\" : [\n" +
+            "    {\n" +
+            "      \"@timestamp.keyword\" : {\n" +
+            "        \"order\" : \"desc\"\n" +
+            "      }\n" +
+            "    }\n" +
+            "  ]\n")
+    List<Alert> findAllActiveSorted();
 }

@@ -15,10 +15,10 @@ spring:
       org.springframework.boot.autoconfigure.web.ErrorMvcAutoConfiguration
       
 elasticsearch:
-  host: 10.51.158.199
+  host: 10.53.34.28
   port: 9200
-  username: elastic
-  password: elastic
+  username: AI-297397
+  password: XU1g0WFhcAaNKRvKZjq3
 
 feign:
   client:

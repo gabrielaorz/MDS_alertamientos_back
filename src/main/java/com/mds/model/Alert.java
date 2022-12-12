@@ -7,8 +7,10 @@ import org.springframework.data.elasticsearch.annotations.FieldType;
 
 import lombok.Data;
 
+import java.util.Date;
+
 @Data
-@Document(indexName = "aiops_excepciones_gaby")
+@Document(indexName = "aiops_excepciones")
 public class Alert {
 	@Id
 	private String id;
@@ -28,10 +30,10 @@ public class Alert {
 	private String host;
 	@Field(type = FieldType.Text, name = "sensor")
 	private String sensor;
-	@Field(type = FieldType.Text, name = "vigencia")
+	@Field(type = FieldType.Date, name = "vigencia")
 	private String vigencia;
-	@Field(type = FieldType.Text, name = "vigencia_inicio")
+	@Field(type = FieldType.Date, name = "vigencia_inicio")
 	private String vigenciaInicio;
-	@Field(type = FieldType.Text, name = "@timestamp")
+	@Field(type = FieldType.Date, name = "@timestamp")
 	private String timestamp;
 }

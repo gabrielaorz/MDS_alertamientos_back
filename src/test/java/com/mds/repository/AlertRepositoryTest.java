@@ -39,16 +39,6 @@ class AlertRepositoryTest {
 		a.setEmpleado("12345");
 		a.setHost("Host1");
 		alerts.add(a);
-		a = new Alert();
-		a.setId("2");
-		a.setEmpleado("31345");
-		a.setHost("Host2");
-		alerts.add(a);
-		a = new Alert();
-		a.setId("3");
-		a.setEmpleado("1435");
-		a.setHost("Host3");
-		alerts.add(a);
 		Iterable<Alert> i = alertRepository.saveAll(alerts);
 		assertNotNull(i);
 	}
